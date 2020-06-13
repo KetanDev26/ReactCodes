@@ -1,0 +1,40 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+p{
+  content: "X";
+}
+
+.error {
+  color: #D8000C;
+  background-color: #FFD2D2;
+  width:300px;
+  height:35px;
+  position:absolute;
+  top:140px;
+  left:105px;
+  text-align: center;
+ 
+ 
+  
+}
+
+.text{
+
+  font-size: 14px;
+  position: relative;
+  top:-5px;
+}
+
+.Thank{
+  padding:100px;
+  background-color: #8E2DE2;
+  font-size: 20px;
+  position:relative;
+  top:-80px;
+  left:1px;
+
+
+}

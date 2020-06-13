@@ -1,0 +1,100 @@
+function Todos({ todo, Removetodo, index }) {
+    return (
+      <div>
+        {todo.Name}
+        <div>
+          <button onClick={() => Removetodo(index)}>X</button>
+        </div>
+      </div>
+    );
+  }
+
+  //To handle the input values and them to array
+  function Add({ Addtodo }) {
+    //    const init={id:null,Name:''}
+    const [value, setvalue] = useState("");
+
+    function handlesubmit(e) {
+      e.preventDefault();
+
+      if (!value) return;
+
+      Addtodo(value);
+    }
+
+    return (
+      <form onSubmit={handlesubmit}>
+        <input
+          type="text"
+          value={value}
+          onChange={e => setvalue(e.target.value)}
+        />
+        <button onClick={handlesubmit}>Add</button>
+      </form>
+    );
+  }
+
+  const [users, setusers] = useState([
+    {
+      id: 1,
+      Name: "Ketan"
+    },
+
+    {
+      id: 2,
+      Name: "Ram"
+    }
+  ]);
+
+  //Add Functionality
+  function Addtodo(Name) {
+    const New = [...users, { Name }];
+    setusers(New);
+  }
+
+  //Remove Functionality
+  function Removetodo(index) {
+    const New = [...users];
+
+    New.splice(index);
+    setusers(New);
+  }
+
+  return (
+    <div className="App">
+      {users.map((todo, index) => (
+        <Todos key={index} index={index} todo={todo} Removetodo={Removetodo} />
+      ))}
+      <Add Addtodo={Addtodo} />
+    </div>
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  try {
+     // setloading(true)
+      await firebase
+        .auth()
+        .signInWithEmailAndPassword(email.value, password.value);
+        event.target.reset()
+        
+      //  seterror(error)
+      history.push("/Dash");
+      
+    
+    } catch (error) {
+      seterror("Invalid Email/Password")
+      console.error(error)
+    }
